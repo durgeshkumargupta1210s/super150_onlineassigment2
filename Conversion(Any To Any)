@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int sb = sc.nextInt();  // Source base
+        int db = sc.nextInt();  // Destination base
+        long num = sc.nextLong();  // Number to convert
+        long temp = num;
+        int mul = 0;
+        long sum = 0;
+
+        // Convert number from source base to decimal
+        while (num > 0) {
+            long rem = num % 10;
+            sum = sum + rem * (long) (Math.pow(sb, mul));
+            mul++;
+            num = num / 10;
+        }
+
+        long bin = 0;
+        int power = 1;
+
+        // Convert number from decimal to destination base
+        while (sum > 0) {
+            long rem = sum % db;
+            bin = bin + rem * power;
+            sum = sum / db;
+            power = power * 10;
+        }
+
+        System.out.println(bin);
+    }
+}
+
