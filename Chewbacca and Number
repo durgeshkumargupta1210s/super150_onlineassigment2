@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        // Your Code Here
+        Scanner sc=new Scanner(System.in);
+        long t=sc.nextLong();
+        long m=t;
+        long sum=0;
+        long place=1;
+        while(t>0){
+            int rem=(int)(t%10);
+            int invert=9-rem;
+            if(t<10 && invert==0){
+                sum+=rem*place;
+            }
+            else{
+                sum+=Math.min(invert,rem)*place;
+            }
+            place*=10;
+            t/=10;
+        }
+        if(sum<=m){
+        System.out.println(sum);
+        }
+        else{
+            System.out.println(m);
+        }
+    }
+}
