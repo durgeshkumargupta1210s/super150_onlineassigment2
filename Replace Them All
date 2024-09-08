@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        long num = sc.nextLong(); 
+        long sum = 0;
+        int mul = 0;
+        long temp=num;
+        
+        while(num > 0) {
+            long rem = num % 10;
+            if(rem == 0) {
+                rem = 5; 
+            }
+            sum = sum + (rem * (long)(Math.pow(10, mul)));
+            mul++;
+            num = num / 10;
+        }
+        // if num start with 0 then apply it
+        if(temp==0){
+            System.out.println(5);
+        }
+        else{
+            System.out.println(sum);
+        }
+        
+    }
+}
