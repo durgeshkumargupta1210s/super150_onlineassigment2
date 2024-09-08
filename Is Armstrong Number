@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt();
+    boolean result=isarmstrong(num);
+    System.out.println(result);
+    }
+
+    public static boolean isarmstrong(int num){
+        int temp = num;
+        int count=0;
+        int res=num;
+        int arm=0;
+        while(num>0){
+            num=num/10;
+            count++;
+        }
+        while(temp>0){
+            int rem = temp%10;
+            arm=arm+(int)(Math.pow(rem,count));
+            temp=temp/10;
+        }
+        if(arm==res){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
